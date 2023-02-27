@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="/static/bootstrap-3.4.1-dist/css/bootstrap.min.css"/>
+	<script src="/static/bootstrap-3.4.1-dist/js/jquery.min.js"></script>
+	<script src="/static/bootstrap4yishang/bootstrap.min.js"></script>
+	<style>
+		table {
+			width: 96%;
+			margin-left: 2%;
+			margin-right:2%;
+			border-top: 1px solid #999; border-left: 1px solid #999;
+			/* table-layout: fixed; */
+			}
+		td,th{
+			border: 1px solid #444;
+			text-align: center;
+		}
+		td{
+			height: 50px;
+			overflow: hidden;
+		}
+		tr:hover{
+			
+			/* background:#f69c9f; */
+		}
+	</style>
+	<body>
+		<div>
+			<!-- <img src="/static/img/a.jpeg"/> -->
+		<table>
+			<tr>
+				<th colspan='8'>用户信息</th>
+			</tr>
+			<tr>
+				<th>id号</th>
+				<th>名字</th>
+				<th>创建时间</th>
+				<th>内容</th>
+				<th><a href="/index.php/add"><input type="button" class="btn btn-primary" value="添加" id="add1"/></a></th>
+		{volist name='list' id='user'}
+		    <tr> 
+				<td>{$user.id}</td>
+				<td>{$user.username}</td>
+				<td>{$user.chatdate}</td>
+				<td>{$user.msg}</td>
+				<td><a href="/index.php/del?id={$user.id}"><span class='glyphicon glyphicon-trash' style='color: red;'></span></td>
+				<td><a href="/index.php/edit?id={$user.id}"><span class='glyphicon glyphicon-edit' style='color: cadetblue;'></span></td>
+			</tr>
+		{/volist}
+		</table>
+		</div>
+		{$list|raw}
+		<!-- {$list->render()} -->
+		<!-- <div>
+		<ul>
+		{volist name='list' id='user'}
+		    <li> {$user.id}</li>
+		{/volist}
+		</ul>
+		</div>
+		{$list|raw} -->
+	</body>
+</html>
